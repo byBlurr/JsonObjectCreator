@@ -22,7 +22,7 @@ foreach (string obj in objs)
     string[] s = clean.Split(": ");
 
     string type = s[1];
-    if (type.EndsWith('!')) type.Remove(0, type.Length - 1);
+    if (type.EndsWith('!')) type = type.Remove(type.Length - 1);
     if (type.StartsWith('[')) type = type.Substring(1).Replace(']', '[') + "]";
     if (replace.ContainsKey(type)) type = replace[type];
 
