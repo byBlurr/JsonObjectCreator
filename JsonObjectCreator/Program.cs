@@ -26,8 +26,10 @@ foreach (string obj in objs)
     if (type.StartsWith('[')) type = type.Substring(1).Replace(']', '[') + "]";
     if (replace.ContainsKey(type)) type = replace[type];
 
+    string up = s[0].Replace(s[0][0], s[0][0].ToString().ToUpper()[0]);
+
     string l1 = $"[JsonProperty(\"{s[0]}\")]";
-    string l2 = $"public {type} {s[0]} {{ get; private set; }}";
+    string l2 = $"public {type} {up} {{ get; private set; }}";
 
     newClass += l1 + "\n" + l2 + "\n\n";
 }
